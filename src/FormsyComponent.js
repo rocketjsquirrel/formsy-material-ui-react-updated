@@ -1,22 +1,21 @@
 import React from 'react';
 
 export default class FormsyComponent extends React.Component {
-	setMuiComponentAndMaybeFocus = c => {
-		if (c === this.muiComponent) return;
+  setMuiComponentAndMaybeFocus = c => {
+    if (c === this.muiComponent) return;
 
-		this.muiComponent = c;
+    this.muiComponent = c;
 
-		if (c && typeof c.focus === 'function') {
-			this.focus = () => c.focus();
-		} else if (this.hasOwnProperty('focus')) {
-			delete this.focus;
-		}
-	};
+    if (c && typeof c.focus === 'function') {
+      this.focus = () => c.focus();
+    } else if (this.hasOwnProperty('focus')) {
+      delete this.focus;
+    }
+  };
 
   debounce = (fn, delay) => {
     let timeout;
-    return () => {
-      const args = arguments;
+    return (...args) => {
       clearTimeout(timeout);
       timeout = setTimeout(() => {
         fn.apply(this, args);
@@ -24,4 +23,3 @@ export default class FormsyComponent extends React.Component {
     };
   };
 }
-
