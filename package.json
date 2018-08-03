@@ -26,7 +26,9 @@
 	"scripts": {
 		"build": "babel ./src -d ./lib",
 		"prepublish": "npm run build",
-		"lint": "eslint --ext .jsx,.js src test && echo \"eslint: no lint errors\""
+		"lint": "eslint --ext .jsx,.js src test && echo \"eslint: no lint errors\"",
+		"cz": "git-cz",
+		"semantic-release": "semantic-release"
 	},
 	"release": {
 		"branch": "master",
@@ -36,5 +38,9 @@
 		"commitizen": {
 			"path": "cz-conventional-changelog"
 		}
+	},
+	"repository": {
+		"type": "git",
+		"url": "https://github.com/debitech/formsy-material-ui.git"
 	}
 }
