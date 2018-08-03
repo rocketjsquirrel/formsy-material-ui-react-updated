@@ -21,6 +21,9 @@
 		"condition-circle": "^2.0.1",
 		"cz-conventional-changelog": "^2.1.0",
 		"eslint": "^5.2.0",
+		"husky": "^1.0.0-rc.13",
+		"prettier": "^1.14.0",
+		"pretty-quick": "^1.6.0",
 		"semantic-release": "^15.9.3"
 	},
 	"scripts": {
@@ -29,6 +32,11 @@
 		"lint": "eslint --ext .jsx,.js src test && echo \"eslint: no lint errors\"",
 		"cz": "git-cz",
 		"semantic-release": "semantic-release"
+	},
+	"husky": {
+		"hooks": {
+			"pre-commit": "pretty-quick --staged"
+		}
 	},
 	"release": {
 		"branch": "master",
