@@ -1,8 +1,17 @@
 {
   "name": "formsy-material-ui-react16",
   "version": "0.0.0-development",
-  "description": "Material UI component compatible with Formsy React on React 16",
-  "keywords": [],
+  "description": "A formsy-react compatibility wrapper for Material-UI form components with React 16",
+  "keywords": [
+    "formsy",
+    "formsy-react",
+    "form",
+    "MUI",
+    "Material-UI",
+    "React",
+    "jsx",
+    "react-component"
+  ],
   "main": "./lib/index.js",
   "dependencies": {
     "formsy-react": "^1.1.4",
@@ -39,18 +48,8 @@
   ],
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/debitech/formsy-material-ui-react16.git"
+    "url": "https://github.com/debitech/formsy-material-ui-react16.git"
   },
-  "keywords": [
-    "formsy",
-    "formsy-react",
-    "form",
-    "MUI",
-    "Material-UI",
-    "React",
-    "jsx",
-    "react-component"
-  ],
   "husky": {
     "hooks": {
       "pre-commit": "pretty-quick --staged"
@@ -64,9 +63,5 @@
     "commitizen": {
       "path": "cz-conventional-changelog"
     }
-  },
-  "repository": {
-    "type": "git",
-    "url": "https://github.com/debitech/formsy-material-ui.git"
   }
 }
