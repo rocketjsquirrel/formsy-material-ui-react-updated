@@ -40,11 +40,11 @@ export class FormsyText extends FormsyComponent {
     const isValueChanging = nextProps.value !== this.props.value;
     if (isValueChanging || nextProps.defaultValue !== this.props.defaultValue) {
       const value = this.controlledValue(nextProps);
-      const isValid = this.isValidValue(value);
+      const isValid = this.prop.isValidValue(value);
 
-      if (isValueChanging || this.props.defaultValue === this.getValue()) {
+      if (isValueChanging || this.props.defaultValue === this.props.getValue()) {
         this.setState({ value, isValid });
-        if (this.getValue() !== value) this.setValue(value);
+        if (this.props.getValue() !== value) this.props.setValue(value);
       }
     }
   }
@@ -57,8 +57,8 @@ export class FormsyText extends FormsyComponent {
       // eslint-disable-line no-underscore-dangle
       // Calling state here is valid, as it cannot cause infinite recursion.
       const value = this.controlledValue(nextProps);
-      const isValid = this.isValidValue(value);
-      this.setValue(value);
+      const isValid = this.props.isValidValue(value);
+      this.props.setValue(value);
       this.setState({ value, isValid });
     }
   }
@@ -101,7 +101,8 @@ export class FormsyText extends FormsyComponent {
   };
 
   handleKeyDown = event => {
-    if (keycode(event) === 'enter') this.setValue(this.convertValue(event.currentTarget.value));
+    if (keycode(event) === 'enter')
+      this.props.setValue(this.convertValue(event.currentTarget.value));
     if (this.props.onKeyDown) this.props.onKeyDown(event, event.currentTarget.value);
   };
 
