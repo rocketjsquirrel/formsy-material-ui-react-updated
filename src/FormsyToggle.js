@@ -30,10 +30,12 @@ export class FormsyToggle extends FormsyComponent {
       validations, // eslint-disable-line no-unused-vars
       validationError, // eslint-disable-line no-unused-vars
       validationErrors, // eslint-disable-line no-unused-vars
+      isFormDisabled,
+      getValue,
       ...rest
     } = this.props;
 
-    let value = this.props.getValue();
+    let value = getValue();
 
     if (typeof value === 'undefined') {
       value = typeof defaultToggled !== 'undefined' ? defaultToggled : false;
@@ -41,7 +43,7 @@ export class FormsyToggle extends FormsyComponent {
 
     return (
       <Toggle
-        disabled={this.props.isFormDisabled()}
+        disabled={isFormDisabled()}
         {...rest}
         onToggle={this.handleChange}
         ref={this.setMuiComponentAndMaybeFocus}
