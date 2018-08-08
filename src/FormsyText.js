@@ -44,7 +44,7 @@ export class FormsyText extends FormsyComponent {
     const isValueChanging = nextProps.value !== this.props.value;
     if (isValueChanging || nextProps.defaultValue !== this.props.defaultValue) {
       const value = this.controlledValue(nextProps);
-      const isValid = this.prop.isValidValue(value);
+      const isValid = this.props.isValidValue(value);
 
       if (isValueChanging || this.props.defaultValue === this.props.getValue()) {
         this.setState({ value, isValid });
