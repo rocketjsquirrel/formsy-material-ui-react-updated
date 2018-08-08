@@ -25,6 +25,10 @@ export class FormsyText extends FormsyComponent {
     value: PropTypes.any,
   };
 
+  /**
+   *
+   * @param {object} props
+   */
   constructor(props) {
     super(props);
     this.state = {
