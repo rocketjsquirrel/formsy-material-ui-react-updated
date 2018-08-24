@@ -53,15 +53,33 @@ export class FormsyAutoComplete extends FormsyComponent {
   };
 
   render() {
+    /* eslint no-unused-vars: 0 */
     const {
-      defaultValue, // eslint-disable-line no-unused-vars
-      onFocus,
-      value, // eslint-disable-line no-unused-vars
-      validations, // eslint-disable-line no-unused-vars
-      validationError, // eslint-disable-line no-unused-vars
-      validationErrors, // eslint-disable-line no-unused-vars
-      isFormDisabled,
+      defaultValue,
       getErrorMessage,
+      getErrorMessages,
+      getValue,
+      hasValue,
+      innerRef,
+      isFormDisabled,
+      isFormSubmitted,
+      isPristine,
+      isRequired,
+      isValid,
+      isValidValue,
+      onBlur,
+      onChange,
+      onFocus,
+      required,
+      resetValue,
+      setValidations,
+      setValue,
+      showError,
+      showRequired,
+      validationError,
+      validationErrors,
+      validations,
+      value,
       ...rest
     } = this.props;
 

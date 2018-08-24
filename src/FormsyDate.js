@@ -57,19 +57,29 @@ export class FormsyDate extends FormsyComponent {
   };
 
   render() {
+    /* eslint no-unused-vars: 0 */
     const {
-      defaultDate, // eslint-disable-line no-unused-vars
-      validations, // eslint-disable-line no-unused-vars
-      validationErrors, // eslint-disable-line no-unused-vars
-      validationError, // eslint-disable-line no-unused-vars
-      requiredError,
-      isRequired,
-      isPristine,
-      isValid,
+      getErrorMessage,
+      getErrorMessages,
+      getValue,
+      hasValue,
+      innerRef,
       isFormDisabled,
       isFormSubmitted,
-      getErrorMessage,
-      getValue,
+      isPristine,
+      isRequired,
+      isValid,
+      isValidValue,
+      name,
+      resetValue,
+      requiredError,
+      setValidations,
+      setValue,
+      showError,
+      showRequired,
+      validationError,
+      validationErrors,
+      validations,
       ...rest
     } = this.props;
 

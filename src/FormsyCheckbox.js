@@ -33,13 +33,29 @@ export class FormsyCheckbox extends FormsyComponent {
   };
 
   render() {
+    /* eslint no-unused-vars: 0 */
     const {
-      defaultChecked, // eslint-disable-line no-unused-vars
-      validations, // eslint-disable-line no-unused-vars
-      validationErrors, // eslint-disable-line no-unused-vars
-      validationError,
+      defaultChecked,
+      getErrorMessage,
+      getErrorMessages,
+      getValue,
+      hasValue,
       isFormDisabled,
-      getValue, // eslint-disable-line no-unused-vars
+      isFormSubmitted,
+      isPristine,
+      isRequired,
+      isValid,
+      isValidValue,
+      onChange,
+      resetValue,
+      requiredError,
+      setValidations,
+      setValue,
+      showError,
+      showRequired,
+      validationError,
+      validationErrors,
+      validations,
       ...rest
     } = this.props;
     let value = getValue();

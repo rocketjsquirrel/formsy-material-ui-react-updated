@@ -118,24 +118,35 @@ export class FormsyText extends FormsyComponent {
   };
 
   render() {
+    /* eslint no-unused-vars: 0 */
     const {
-      defaultValue, // eslint-disable-line no-unused-vars
-      convertValue, // eslint-disable-line no-unused-vars
-      requiredError,
-      underlineFocusStyle,
-      underlineStyle,
-      updateImmediately, // eslint-disable-line no-unused-vars
-      validations, // eslint-disable-line no-unused-vars
-      validationError, // eslint-disable-line no-unused-vars
-      validationErrors, // eslint-disable-line no-unused-vars
-      value, // eslint-disable-line no-unused-vars
-      validationColor,
-      isRequired,
-      isPristine,
-      isValid,
+      defaultValue,
+      convertValue,
+      getErrorMessage,
+      getErrorMessages,
+      getValue,
+      hasValue,
+      innerRef,
       isFormDisabled,
       isFormSubmitted,
-      getErrorMessage,
+      isPristine,
+      isRequired,
+      isValid,
+      isValidValue,
+      resetValue,
+      requiredError,
+      setValidations,
+      setValue,
+      showError,
+      showRequired,
+      underlineFocusStyle,
+      underlineStyle,
+      updateImmediately,
+      validationError,
+      validationErrors,
+      validations,
+      validationColor,
+      value,
       ...rest
     } = this.props;
 

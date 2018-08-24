@@ -25,13 +25,27 @@ export class FormsyToggle extends FormsyComponent {
   };
 
   render() {
+    /* eslint no-unused-vars: 0 */
     const {
-      defaultToggled,
-      validations, // eslint-disable-line no-unused-vars
-      validationError, // eslint-disable-line no-unused-vars
-      validationErrors, // eslint-disable-line no-unused-vars
-      isFormDisabled,
+      defaultValue,
+      getErrorMessage,
+      getErrorMessages,
       getValue,
+      hasValue,
+      isFormDisabled,
+      isFormSubmitted,
+      isPristine,
+      isRequired,
+      isValid,
+      isValidValue,
+      resetValue,
+      setValidations,
+      setValue,
+      showError,
+      showRequired,
+      validationError,
+      validationErrors,
+      validations,
       ...rest
     } = this.props;
 

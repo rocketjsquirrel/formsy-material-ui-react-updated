@@ -53,13 +53,25 @@ class FormsyTime extends FormsyComponent {
 
   render() {
     const {
-      defaultTime, // eslint-disable-line no-unused-vars
-      validations, // eslint-disable-line no-unused-vars
-      validationError, // eslint-disable-line no-unused-vars
-      validationErrors, // eslint-disable-line no-unused-vars
-      isFormDisabled,
+      defaultTime,
       getErrorMessage,
+      getErrorMessages,
       getValue,
+      hasValue,
+      isFormDisabled,
+      isFormSubmitted,
+      isPristine,
+      isRequired,
+      isValid,
+      isValidValue,
+      resetValue,
+      setValidations,
+      setValue,
+      showError,
+      showRequired,
+      validationError,
+      validationErrors,
+      validations,
       ...rest
     } = this.props;
 

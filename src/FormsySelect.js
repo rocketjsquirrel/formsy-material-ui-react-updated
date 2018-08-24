@@ -32,20 +32,30 @@ export class FormsySelect extends FormsyComponent {
   };
 
   render() {
+    /* eslint no-unused-vars: 0 */
     const {
-      requiredError,
-      validations, // eslint-disable-line no-unused-vars
-      validationError, // eslint-disable-line no-unused-vars
-      validationErrors, // eslint-disable-line no-unused-vars
-      value: valueProp,
-      onChange,
-      isRequired,
-      isPristine,
-      isValid,
+      getErrorMessage,
+      getErrorMessages,
+      getValue,
+      hasValue,
+      innerRef,
       isFormDisabled,
       isFormSubmitted,
-      getErrorMessage,
-      getValue,
+      isPristine,
+      isRequired,
+      isValid,
+      isValidValue,
+      onChange,
+      resetValue,
+      requiredError,
+      setValidations,
+      setValue,
+      showError,
+      showRequired,
+      validationError,
+      validationErrors,
+      validations,
+      value: valueProp,
       ...rest
     } = this.props;
 

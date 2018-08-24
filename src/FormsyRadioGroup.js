@@ -27,13 +27,29 @@ export class FormsyRadioGroup extends FormsyComponent {
   };
 
   render() {
+    /* eslint no-unused-vars: 0 */
     let {
-      validations, // eslint-disable-line no-unused-vars, prefer-const
-      validationError, // eslint-disable-line no-unused-vars, prefer-const
-      validationErrors, // eslint-disable-line no-unused-vars, prefer-const
-      defaultSelected, // eslint-disable-line prefer-const
-      isFormDisabled,
+      defaultSelected,
+      getErrorMessage,
+      getErrorMessages,
       getValue,
+      hasValue,
+      innerRef,
+      isFormDisabled,
+      isFormSubmitted,
+      isPristine,
+      isRequired,
+      isValid,
+      isValidValue,
+      required,
+      resetValue,
+      setValidations,
+      setValue,
+      showError,
+      showRequired,
+      validationError,
+      validationErrors,
+      validations,
       value,
       ...rest
     } = this.props;
