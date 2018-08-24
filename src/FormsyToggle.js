@@ -32,6 +32,7 @@ export class FormsyToggle extends FormsyComponent {
       getErrorMessages,
       getValue,
       hasValue,
+      innerRef,
       isFormDisabled,
       isFormSubmitted,
       isPristine,

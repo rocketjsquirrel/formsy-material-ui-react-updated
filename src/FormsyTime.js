@@ -58,6 +58,7 @@ class FormsyTime extends FormsyComponent {
       getErrorMessages,
       getValue,
       hasValue,
+      innerRef,
       isFormDisabled,
       isFormSubmitted,
       isPristine,

@@ -40,6 +40,7 @@ export class FormsyCheckbox extends FormsyComponent {
       getErrorMessages,
       getValue,
       hasValue,
+      innerRef,
       isFormDisabled,
       isFormSubmitted,
       isPristine,
