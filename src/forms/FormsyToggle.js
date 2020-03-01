@@ -4,6 +4,7 @@ import { withFormsy } from 'formsy-react';
 import Toggle from 'material-ui/Toggle';
 
 import FormsyComponent from './FormsyComponent';
+import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
 
 export class FormsyToggle extends FormsyComponent {
   static propTypes = {
@@ -57,13 +58,15 @@ export class FormsyToggle extends FormsyComponent {
     }
 
     return (
-      <Toggle
-        disabled={isFormDisabled}
-        {...rest}
-        onToggle={this.handleChange}
-        ref={this.setMuiComponentAndMaybeFocus}
-        toggled={toggleValue}
-      />
+      <MuiThemeProvider>
+        <Toggle
+          disabled={isFormDisabled}
+          {...rest}
+          onToggle={this.handleChange}
+          ref={this.setMuiComponentAndMaybeFocus}
+          toggled={toggleValue}
+        />
+      </MuiThemeProvider>
     );
   }
 }

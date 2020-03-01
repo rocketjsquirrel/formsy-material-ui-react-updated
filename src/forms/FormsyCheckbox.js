@@ -4,6 +4,7 @@ import { withFormsy } from 'formsy-react';
 import Checkbox from 'material-ui/Checkbox';
 
 import FormsyComponent from './FormsyComponent';
+import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
 
 export class FormsyCheckbox extends FormsyComponent {
   static propTypes = {
@@ -65,13 +66,15 @@ export class FormsyCheckbox extends FormsyComponent {
       checkBoxValue = typeof defaultChecked !== 'undefined' ? defaultChecked : false;
     }
     return (
-      <Checkbox
-        disabled={isFormDisabled}
-        {...rest}
-        checked={checkBoxValue}
-        onCheck={this.handleChange}
-        ref={this.setMuiComponentAndMaybeFocus}
-      />
+      <MuiThemeProvider>
+        <Checkbox
+          disabled={isFormDisabled}
+          {...rest}
+          checked={checkBoxValue}
+          onCheck={this.handleChange}
+          ref={this.setMuiComponentAndMaybeFocus}
+        />
+      </MuiThemeProvider>
     );
   }
 }

@@ -4,6 +4,7 @@ import { withFormsy } from 'formsy-react';
 import TimePicker from 'material-ui/TimePicker';
 
 import FormsyComponent from './FormsyComponent';
+import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
 
 class FormsyTime extends FormsyComponent {
   static propTypes = {
@@ -77,14 +78,16 @@ class FormsyTime extends FormsyComponent {
     } = this.props;
 
     return (
-      <TimePicker
-        disabled={isFormDisabled}
-        {...rest}
-        errorText={errorMessage}
-        onChange={this.handleChange}
-        ref={this.setMuiComponentAndMaybeFocus}
-        value={value}
-      />
+      <MuiThemeProvider>
+        <TimePicker
+          disabled={isFormDisabled}
+          {...rest}
+          errorText={errorMessage}
+          onChange={this.handleChange}
+          ref={this.setMuiComponentAndMaybeFocus}
+          value={value}
+        />
+      </MuiThemeProvider>
     );
   }
 }

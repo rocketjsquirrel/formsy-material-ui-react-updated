@@ -4,6 +4,7 @@ import { withFormsy } from 'formsy-react';
 import DatePicker from 'material-ui/DatePicker';
 
 import FormsyComponent from './FormsyComponent';
+import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
 
 export class FormsyDate extends FormsyComponent {
   static propTypes = {
@@ -86,14 +87,16 @@ export class FormsyDate extends FormsyComponent {
     const isRequiredError = required && !isPristine && !isValid && isFormSubmitted && requiredError;
     const errorText = errorMessage || isRequiredError;
     return (
-      <DatePicker
-        disabled={isFormDisabled}
-        {...rest}
-        errorText={errorText}
-        onChange={this.handleChange}
-        ref={this.setMuiComponentAndMaybeFocus}
-        value={value}
-      />
+      <MuiThemeProvider>
+        <DatePicker
+          disabled={isFormDisabled}
+          {...rest}
+          errorText={errorText}
+          onChange={this.handleChange}
+          ref={this.setMuiComponentAndMaybeFocus}
+          value={value}
+        />
+      </MuiThemeProvider>
     );
   }
 }

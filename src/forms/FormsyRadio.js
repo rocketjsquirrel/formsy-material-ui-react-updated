@@ -1,6 +1,7 @@
 import React from 'react';
 import { withFormsy } from 'formsy-react';
 import RadioButton from 'material-ui/RadioButton';
+import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
 
 export class FormsyRadio extends React.Component {
   render() {
@@ -28,7 +29,11 @@ export class FormsyRadio extends React.Component {
       ...rest
     } = this.props;
 
-    return <RadioButton {...rest} />;
+    return (
+      <MuiThemeProvider>
+        <RadioButton {...rest} />
+      </MuiThemeProvider>
+    );
   }
 }
 

@@ -5,6 +5,7 @@ import { withFormsy } from 'formsy-react';
 import AutoComplete from 'material-ui/AutoComplete';
 
 import FormsyComponent from './FormsyComponent';
+import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
 
 export class FormsyAutoComplete extends FormsyComponent {
   static propTypes = {
@@ -82,18 +83,20 @@ export class FormsyAutoComplete extends FormsyComponent {
     } = this.props;
 
     return (
-      <AutoComplete
-        disabled={isFormDisabled}
-        {...rest}
-        errorText={errorMessage}
-        onBlur={this.handleBlur}
-        onChange={this.handleChange}
-        onUpdateInput={this.handleUpdateInput}
-        onFocus={onFocus}
-        onKeyDown={this.handleKeyDown}
-        ref={this.setMuiComponentAndMaybeFocus}
-        value={this.state.value}
-      />
+      <MuiThemeProvider>
+        <AutoComplete
+          disabled={isFormDisabled}
+          {...rest}
+          errorText={errorMessage}
+          onBlur={this.handleBlur}
+          onChange={this.handleChange}
+          onUpdateInput={this.handleUpdateInput}
+          onFocus={onFocus}
+          onKeyDown={this.handleKeyDown}
+          ref={this.setMuiComponentAndMaybeFocus}
+          value={this.state.value}
+        />
+      </MuiThemeProvider>
     );
   }
 }

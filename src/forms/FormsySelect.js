@@ -4,6 +4,7 @@ import { withFormsy } from 'formsy-react';
 import SelectField from 'material-ui/SelectField';
 
 import FormsyComponent from './FormsyComponent';
+import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
 
 export class FormsySelect extends FormsyComponent {
   static propTypes = {
@@ -64,16 +65,18 @@ export class FormsySelect extends FormsyComponent {
     const selectValue = this.state.hasChanged ? value : valueProp;
 
     return (
-      <SelectField
-        disabled={isFormDisabled}
-        errorText={errorText}
-        onChange={this.handleChange}
-        ref={this.setMuiComponentAndMaybeFocus}
-        value={selectValue}
-        {...rest}
-      >
-        {this.props.children}
-      </SelectField>
+      <MuiThemeProvider>
+        <SelectField
+          disabled={isFormDisabled}
+          errorText={errorText}
+          onChange={this.handleChange}
+          ref={this.setMuiComponentAndMaybeFocus}
+          value={selectValue}
+          {...rest}
+        >
+          {this.props.children}
+        </SelectField>
+      </MuiThemeProvider>
     );
   }
 }

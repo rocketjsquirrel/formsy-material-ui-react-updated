@@ -4,6 +4,7 @@ import { withFormsy } from 'formsy-react';
 import { RadioButtonGroup, RadioButton } from 'material-ui/RadioButton';
 
 import FormsyComponent from './FormsyComponent';
+import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
 
 export class FormsyRadioGroup extends FormsyComponent {
   static propTypes = {
@@ -73,16 +74,18 @@ export class FormsyRadioGroup extends FormsyComponent {
     }
 
     return (
-      <RadioButtonGroup
-        disabled={isFormDisabled}
-        {...rest}
-        ref={this.setMuiComponentAndMaybeFocus}
-        onChange={this.handleValueChange}
-        valueSelected={value}
-        defaultSelected={value}
-      >
-        {children}
-      </RadioButtonGroup>
+      <MuiThemeProvider>
+        <RadioButtonGroup
+          disabled={isFormDisabled}
+          {...rest}
+          ref={this.setMuiComponentAndMaybeFocus}
+          onChange={this.handleValueChange}
+          valueSelected={value}
+          defaultSelected={value}
+        >
+          {children}
+        </RadioButtonGroup>
+      </MuiThemeProvider>
     );
   }
 }
