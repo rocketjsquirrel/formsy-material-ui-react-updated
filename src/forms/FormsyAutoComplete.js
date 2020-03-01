@@ -56,21 +56,20 @@ export class FormsyAutoComplete extends FormsyComponent {
     /* eslint no-unused-vars: 0 */
     const {
       defaultValue,
-      getErrorMessage,
-      getErrorMessages,
-      getValue,
+      errorMessage,
+      errorMessages,
+      value,
       hasValue,
       innerRef,
       isFormDisabled,
       isFormSubmitted,
       isPristine,
-      isRequired,
+      required,
       isValid,
       isValidValue,
       onBlur,
       onChange,
       onFocus,
-      required,
       resetValue,
       setValidations,
       setValue,
@@ -79,15 +78,14 @@ export class FormsyAutoComplete extends FormsyComponent {
       validationError,
       validationErrors,
       validations,
-      value,
       ...rest
     } = this.props;
 
     return (
       <AutoComplete
-        disabled={isFormDisabled()}
+        disabled={isFormDisabled}
         {...rest}
-        errorText={getErrorMessage()}
+        errorText={errorMessage}
         onBlur={this.handleBlur}
         onChange={this.handleChange}
         onUpdateInput={this.handleUpdateInput}

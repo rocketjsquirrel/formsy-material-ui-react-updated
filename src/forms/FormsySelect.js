@@ -34,15 +34,15 @@ export class FormsySelect extends FormsyComponent {
   render() {
     /* eslint no-unused-vars: 0 */
     const {
-      getErrorMessage,
-      getErrorMessages,
-      getValue,
+      errorMessage,
+      errorMessages,
+      value,
       hasValue,
       innerRef,
       isFormDisabled,
       isFormSubmitted,
       isPristine,
-      isRequired,
+      required,
       isValid,
       isValidValue,
       onChange,
@@ -59,18 +59,17 @@ export class FormsySelect extends FormsyComponent {
       ...rest
     } = this.props;
 
-    const isRequiredError =
-      isRequired() && !isPristine() && !isValid() && isFormSubmitted() && requiredError;
-    const errorText = getErrorMessage() || isRequiredError;
-    const value = this.state.hasChanged ? getValue() : valueProp;
+    const isRequiredError = required && !isPristine && !isValid && isFormSubmitted && requiredError;
+    const errorText = errorMessage || isRequiredError;
+    const selectValue = this.state.hasChanged ? value : valueProp;
 
     return (
       <SelectField
-        disabled={isFormDisabled()}
+        disabled={isFormDisabled}
         errorText={errorText}
         onChange={this.handleChange}
         ref={this.setMuiComponentAndMaybeFocus}
-        value={value}
+        value={selectValue}
         {...rest}
       >
         {this.props.children}

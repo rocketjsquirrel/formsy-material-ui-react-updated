@@ -30,18 +30,17 @@ export class FormsyRadioGroup extends FormsyComponent {
     /* eslint no-unused-vars: 0 */
     let {
       defaultSelected,
-      getErrorMessage,
-      getErrorMessages,
-      getValue,
+      errorMessage,
+      errorMessages,
+      value,
       hasValue,
       innerRef,
       isFormDisabled,
       isFormSubmitted,
       isPristine,
-      isRequired,
+      required,
       isValid,
       isValidValue,
-      required,
       resetValue,
       setValidations,
       setValue,
@@ -50,7 +49,6 @@ export class FormsyRadioGroup extends FormsyComponent {
       validationError,
       validationErrors,
       validations,
-      value,
       ...rest
     } = this.props;
 
@@ -76,11 +74,11 @@ export class FormsyRadioGroup extends FormsyComponent {
 
     return (
       <RadioButtonGroup
-        disabled={isFormDisabled()}
+        disabled={isFormDisabled}
         {...rest}
         ref={this.setMuiComponentAndMaybeFocus}
         onChange={this.handleValueChange}
-        valueSelected={getValue()}
+        valueSelected={value}
         defaultSelected={value}
       >
         {children}

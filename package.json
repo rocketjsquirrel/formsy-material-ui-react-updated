@@ -12,7 +12,6 @@
     "jsx",
     "react-component"
   ],
-  "main": "./lib/index.js",
   "peerDependencies": {
     "formsy-react": "*",
     "keycode": "*",
@@ -21,36 +20,50 @@
     "react-dom": "*"
   },
   "devDependencies": {
+    "@babel/core": "^7.8.6",
+    "@babel/plugin-proposal-class-properties": "^7.8.3",
+    "@babel/plugin-proposal-decorators": "^7.8.3",
+    "@babel/plugin-proposal-object-rest-spread": "^7.8.3",
+    "@babel/plugin-transform-runtime": "^7.8.3",
+    "@babel/preset-env": "^7.8.6",
+    "@babel/preset-react": "^7.8.3",
     "babel-cli": "^6.26.0",
-    "babel-polyfill": "^6.26.0",
-    "babel-preset-es2015": "^6.24.1",
-    "babel-preset-react": "^6.24.1",
-    "babel-preset-stage-1": "^6.24.1",
+    "babel-loader": "^8.0.6",
     "commitizen": "^2.10.1",
     "condition-circle": "^2.0.1",
+    "css-loader": "^3.4.2",
     "cz-conventional-changelog": "^2.1.0",
     "eslint": "^5.2.0",
-    "formsy-react": "^1.1.4",
+    "file-loader": "^5.1.0",
+    "formsy-react": "^2.0.2",
+    "html-webpack-plugin": "^3.2.0",
     "husky": "^1.0.0-rc.13",
+    "image-webpack-loader": "^6.0.0",
+    "jest": "^25.1.0",
     "keycode": "^2.2.0",
     "material-ui": "^0.20.1",
     "prettier": "^1.14.0",
     "pretty-quick": "^1.6.0",
     "react": "^16.4.2",
+    "react-addons-test-utils": "^15.6.2",
     "react-dom": "^16.4.2",
-    "semantic-release": "^15.9.3"
+    "semantic-release": "^15.9.3",
+    "source-map-loader": "^0.2.4",
+    "style-loader": "^1.1.3",
+    "webpack": "^4.41.6",
+    "webpack-cli": "^3.3.11",
+    "webpack-dev-server": "^3.10.3"
   },
   "scripts": {
-    "build": "babel ./src -d ./lib",
-    "prepublish": "npm run build",
+    "test": "jest",
+    "examples": "webpack-dev-server --config=webpack.config.js --progress --colors",
     "lint": "eslint --ext .jsx,.js src test && echo \"eslint: no lint errors\"",
     "cz": "git-cz",
     "semantic-release": "semantic-release"
   },
-  "files": [
-    "lib",
-    "src"
-  ],
+  "jest": {
+    "verbose": true
+  },
   "repository": {
     "type": "git",
     "url": "https://github.com/debitech/formsy-material-ui-react16.git"
@@ -68,5 +81,6 @@
     "commitizen": {
       "path": "cz-conventional-changelog"
     }
-  }
+  },
+  "dependencies": {}
 }

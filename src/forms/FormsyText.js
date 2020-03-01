@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import keycode from 'keycode';
 import { withFormsy } from 'formsy-react';
 import TextField from 'material-ui/TextField';
-
+import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
 import FormsyComponent from './FormsyComponent';
 
 export class FormsyText extends FormsyComponent {
@@ -46,9 +46,9 @@ export class FormsyText extends FormsyComponent {
       const value = this.controlledValue(nextProps);
       const isValid = this.props.isValidValue(value);
 
-      if (isValueChanging || this.props.defaultValue === this.props.getValue()) {
+      if (isValueChanging || this.props.defaultValue === this.props.value) {
         this.setState({ value, isValid });
-        if (this.props.getValue() !== value) this.props.setValue(value);
+        if (this.props.value !== value) this.props.setValue(value);
       }
     }
   }
@@ -85,7 +85,7 @@ export class FormsyText extends FormsyComponent {
       this.changeValue(this.convertValue(event.currentTarget.value));
     } else {
       // If there was an error (on loss of focus) update on each keypress to resolve same.
-      if (this.props.getErrorMessage() != null) {
+      if (this.props.errorMessage != null) {
         this.props.setValue(this.convertValue(event.currentTarget.value));
       } else {
         // Only update on valid values, so as to not generate an error until focus is lost.
@@ -105,8 +105,9 @@ export class FormsyText extends FormsyComponent {
   };
 
   handleKeyDown = event => {
-    if (keycode(event) === 'enter')
+    if (keycode(event) === 'enter') {
       this.props.setValue(this.convertValue(event.currentTarget.value));
+    }
     if (this.props.onKeyDown) this.props.onKeyDown(event, event.currentTarget.value);
   };
 
@@ -122,19 +123,18 @@ export class FormsyText extends FormsyComponent {
     const {
       defaultValue,
       convertValue,
-      getErrorMessage,
-      getErrorMessages,
-      getValue,
+      errorMessage,
+      errorMessages,
+      value,
       hasValue,
       innerRef,
       isFormDisabled,
       isFormSubmitted,
       isPristine,
-      isRequired,
+      required,
       isValid,
       isValidValue,
       resetValue,
-      requiredError,
       setValidations,
       setValue,
       showError,
@@ -146,30 +146,30 @@ export class FormsyText extends FormsyComponent {
       validationErrors,
       validations,
       validationColor,
-      value,
       ...rest
     } = this.props;
 
-    const isRequiredError =
-      isRequired() && !isPristine() && !isValid() && isFormSubmitted() && requiredError;
+    const requiredError = required && !isPristine && !isValid && isFormSubmitted && requiredError;
 
-    const errorText = getErrorMessage() || isRequiredError;
+    const errorText = errorMessage || requiredError;
 
     return (
-      <TextField
-        disabled={isFormDisabled()}
-        {...rest}
-        errorText={errorText}
-        onBlur={this.handleBlur}
-        onChange={this.handleChange}
-        onKeyDown={this.handleKeyDown}
-        ref={this.setMuiComponentAndMaybeFocus}
-        value={this.state.value}
-        underlineStyle={this.state.isValid ? { borderColor: validationColor } : underlineStyle}
-        underlineFocusStyle={
-          this.state.isValid ? { borderColor: validationColor } : underlineFocusStyle
-        }
-      />
+      <MuiThemeProvider>
+        <TextField
+          disabled={isFormDisabled}
+          {...rest}
+          errorText={errorText}
+          onBlur={this.handleBlur}
+          onChange={this.handleChange}
+          onKeyDown={this.handleKeyDown}
+          ref={this.setMuiComponentAndMaybeFocus}
+          value={this.state.value}
+          underlineStyle={this.state.isValid ? { borderColor: validationColor } : underlineStyle}
+          underlineFocusStyle={
+            this.state.isValid ? { borderColor: validationColor } : underlineFocusStyle
+          }
+        />
+      </MuiThemeProvider>
     );
   }
 }

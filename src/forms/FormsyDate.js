@@ -19,7 +19,7 @@ export class FormsyDate extends FormsyComponent {
 
   componentDidMount() {
     const { defaultDate } = this.props;
-    const value = this.props.getValue();
+    const value = this.props.value;
 
     if (typeof value === 'undefined' && typeof defaultDate !== 'undefined') {
       this.props.setValue(defaultDate);
@@ -59,15 +59,15 @@ export class FormsyDate extends FormsyComponent {
   render() {
     /* eslint no-unused-vars: 0 */
     const {
-      getErrorMessage,
-      getErrorMessages,
-      getValue,
+      errorMessage,
+      errorMessages,
+      value,
       hasValue,
       innerRef,
       isFormDisabled,
       isFormSubmitted,
       isPristine,
-      isRequired,
+      required,
       isValid,
       isValidValue,
       name,
@@ -83,17 +83,16 @@ export class FormsyDate extends FormsyComponent {
       ...rest
     } = this.props;
 
-    const isRequiredError =
-      isRequired() && !isPristine() && !isValid() && isFormSubmitted() && requiredError;
-    const errorText = getErrorMessage() || isRequiredError;
+    const isRequiredError = required && !isPristine && !isValid && isFormSubmitted && requiredError;
+    const errorText = errorMessage || isRequiredError;
     return (
       <DatePicker
-        disabled={isFormDisabled()}
+        disabled={isFormDisabled}
         {...rest}
         errorText={errorText}
         onChange={this.handleChange}
         ref={this.setMuiComponentAndMaybeFocus}
-        value={getValue()}
+        value={value}
       />
     );
   }

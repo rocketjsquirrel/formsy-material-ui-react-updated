@@ -1,13 +1,13 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { withFormsy } from 'formsy-react';
-import Toggle from 'material-ui/Toggle';
+import Checkbox from 'material-ui/Checkbox';
 
 import FormsyComponent from './FormsyComponent';
 
-export class FormsyToggle extends FormsyComponent {
+export class FormsyCheckbox extends FormsyComponent {
   static propTypes = {
-    defaultToggled: PropTypes.bool,
+    defaultChecked: PropTypes.bool,
     name: PropTypes.string.isRequired,
     onChange: PropTypes.func,
     validationError: PropTypes.string,
@@ -15,8 +15,16 @@ export class FormsyToggle extends FormsyComponent {
     validations: PropTypes.oneOfType([PropTypes.string, PropTypes.object]),
   };
 
+  static defaultProps = {
+    onChange: () => {},
+    validationError: '',
+    validationErrors: {},
+    validations: {},
+    defaultChecked: false,
+  };
+
   componentDidMount() {
-    this.props.setValue(this.muiComponent.isToggled());
+    this.props.setValue(this.muiComponent.isChecked());
   }
 
   handleChange = (event, value) => {
@@ -27,19 +35,21 @@ export class FormsyToggle extends FormsyComponent {
   render() {
     /* eslint no-unused-vars: 0 */
     const {
-      defaultValue,
-      getErrorMessage,
-      getErrorMessages,
-      getValue,
+      defaultChecked,
+      errorMessage,
+      errorMessages,
+      value,
       hasValue,
       innerRef,
       isFormDisabled,
       isFormSubmitted,
       isPristine,
-      isRequired,
+      required,
       isValid,
       isValidValue,
+      onChange,
       resetValue,
+      requiredError,
       setValidations,
       setValue,
       showError,
@@ -50,22 +60,20 @@ export class FormsyToggle extends FormsyComponent {
       ...rest
     } = this.props;
 
-    let value = getValue();
-
-    if (typeof value === 'undefined') {
-      value = typeof defaultToggled !== 'undefined' ? defaultToggled : false;
+    let checkBoxValue = value;
+    if (typeof checkBoxValue === 'undefined') {
+      checkBoxValue = typeof defaultChecked !== 'undefined' ? defaultChecked : false;
     }
-
     return (
-      <Toggle
-        disabled={isFormDisabled()}
+      <Checkbox
+        disabled={isFormDisabled}
         {...rest}
-        onToggle={this.handleChange}
+        checked={checkBoxValue}
+        onCheck={this.handleChange}
         ref={this.setMuiComponentAndMaybeFocus}
-        toggled={value}
       />
     );
   }
 }
 
-export default withFormsy(FormsyToggle);
+export default withFormsy(FormsyCheckbox);

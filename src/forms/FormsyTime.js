@@ -18,7 +18,7 @@ class FormsyTime extends FormsyComponent {
 
   componentDidMount() {
     const { defaultTime } = this.props;
-    const value = this.props.getValue();
+    const value = this.props.value;
 
     if (typeof value === 'undefined' && typeof defaultTime !== 'undefined') {
       this.props.setValue(defaultTime);
@@ -54,15 +54,15 @@ class FormsyTime extends FormsyComponent {
   render() {
     const {
       defaultTime,
-      getErrorMessage,
-      getErrorMessages,
-      getValue,
+      errorMessage,
+      errorMessages,
+      value,
       hasValue,
       innerRef,
       isFormDisabled,
       isFormSubmitted,
       isPristine,
-      isRequired,
+      required,
       isValid,
       isValidValue,
       resetValue,
@@ -78,12 +78,12 @@ class FormsyTime extends FormsyComponent {
 
     return (
       <TimePicker
-        disabled={isFormDisabled()}
+        disabled={isFormDisabled}
         {...rest}
-        errorText={getErrorMessage()}
+        errorText={errorMessage}
         onChange={this.handleChange}
         ref={this.setMuiComponentAndMaybeFocus}
-        value={getValue()}
+        value={value}
       />
     );
   }

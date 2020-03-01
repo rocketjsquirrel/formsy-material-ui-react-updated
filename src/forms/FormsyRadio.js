@@ -6,15 +6,15 @@ export class FormsyRadio extends React.Component {
   render() {
     /* eslint no-unused-vars: 0 */
     const {
-      getErrorMessage,
-      getErrorMessages,
-      getValue,
+      errorMessage,
+      errorMessages,
+      value,
       hasValue,
       innerRef,
       isFormDisabled,
       isFormSubmitted,
       isPristine,
-      isRequired,
+      required,
       isValid,
       isValidValue,
       resetValue,
