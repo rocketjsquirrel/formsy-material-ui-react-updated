@@ -1,6 +1,6 @@
 {
-  "name": "formsy-material-ui-react16",
-  "version": "0.0.0-development",
+  "name": "formsy-material-ui-react-updated",
+  "version": "0.0.1-development",
   "description": "A formsy-react compatibility wrapper for Material-UI form components with React 16",
   "keywords": [
     "formsy",
@@ -56,31 +56,15 @@
   },
   "scripts": {
     "test": "jest",
-    "examples": "webpack-dev-server --config=webpack.config.js --progress --colors",
-    "lint": "eslint --ext .jsx,.js src test && echo \"eslint: no lint errors\"",
-    "cz": "git-cz",
-    "semantic-release": "semantic-release"
+    "build": "webpack",
+    "examples": "webpack-dev-server --config=webpack.config.js --progress --colors"
   },
   "jest": {
     "verbose": true
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/debitech/formsy-material-ui-react16.git"
-  },
-  "husky": {
-    "hooks": {
-      "pre-commit": "pretty-quick --staged"
-    }
-  },
-  "release": {
-    "branch": "master",
-    "verifyConditions": "condition-circle"
-  },
-  "config": {
-    "commitizen": {
-      "path": "cz-conventional-changelog"
-    }
-  },
-  "dependencies": {}
+    "url": "https://github.com/rocketjsquirrel/formsy-material-ui-react-updated"
+  }
+
 }
