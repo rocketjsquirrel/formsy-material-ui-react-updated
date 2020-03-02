@@ -64,6 +64,7 @@ class FormsyTime extends FormsyComponent {
       isFormSubmitted,
       isPristine,
       required,
+      isRequired,
       isValid,
       isValidValue,
       resetValue,
@@ -91,5 +92,6 @@ class FormsyTime extends FormsyComponent {
     );
   }
 }
+const WithFormsyFormsyTime = withFormsy(FormsyTime);
 
-export default withFormsy(FormsyTime);
+export { WithFormsyFormsyTime as FormsyTime };

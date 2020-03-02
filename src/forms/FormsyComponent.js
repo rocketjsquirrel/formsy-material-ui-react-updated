@@ -1,17 +1,6 @@
 import React from 'react';
 
 export default class FormsyComponent extends React.Component {
-  //	static childContextTypes =
-  //           {
-  //               muiTheme: React.PropTypes.object
-  //           }
-  //
-  //	getChildContext(){
-  //		return {
-  //			muiTheme: getMuiTheme()
-  //		}
-  //	}
-
   setMuiComponentAndMaybeFocus = c => {
     if (c === this.muiComponent) return;
 

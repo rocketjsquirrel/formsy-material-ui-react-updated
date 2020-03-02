@@ -6,7 +6,7 @@ import DatePicker from 'material-ui/DatePicker';
 import FormsyComponent from './FormsyComponent';
 import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
 
-export class FormsyDate extends FormsyComponent {
+class FormsyDate extends FormsyComponent {
   static propTypes = {
     defaultDate: PropTypes.object,
     name: PropTypes.string.isRequired,
@@ -67,6 +67,7 @@ export class FormsyDate extends FormsyComponent {
       innerRef,
       isFormDisabled,
       isFormSubmitted,
+      isRequired,
       isPristine,
       required,
       isValid,
@@ -100,5 +101,6 @@ export class FormsyDate extends FormsyComponent {
     );
   }
 }
+const WithFormsyFormsyDate = withFormsy(FormsyDate);
 
-export default withFormsy(FormsyDate);
+export { WithFormsyFormsyDate as FormsyDate };

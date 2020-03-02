@@ -7,7 +7,7 @@ import AutoComplete from 'material-ui/AutoComplete';
 import FormsyComponent from './FormsyComponent';
 import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
 
-export class FormsyAutoComplete extends FormsyComponent {
+class FormsyAutoComplete extends FormsyComponent {
   static propTypes = {
     defaultValue: PropTypes.any,
     name: PropTypes.string.isRequired,
@@ -66,6 +66,7 @@ export class FormsyAutoComplete extends FormsyComponent {
       isFormSubmitted,
       isPristine,
       required,
+      isRequired,
       isValid,
       isValidValue,
       onBlur,
@@ -100,5 +101,6 @@ export class FormsyAutoComplete extends FormsyComponent {
     );
   }
 }
+const WithFormsyFormsyAutoComplete = withFormsy(FormsyAutoComplete);
 
-export default withFormsy(FormsyAutoComplete);
+export { WithFormsyFormsyAutoComplete as FormsyAutoComplete };

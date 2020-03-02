@@ -6,7 +6,7 @@ import Checkbox from 'material-ui/Checkbox';
 import FormsyComponent from './FormsyComponent';
 import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
 
-export class FormsyCheckbox extends FormsyComponent {
+class FormsyCheckbox extends FormsyComponent {
   static propTypes = {
     defaultChecked: PropTypes.bool,
     name: PropTypes.string.isRequired,
@@ -45,6 +45,7 @@ export class FormsyCheckbox extends FormsyComponent {
       isFormDisabled,
       isFormSubmitted,
       isPristine,
+      isRequired,
       required,
       isValid,
       isValidValue,
@@ -78,5 +79,6 @@ export class FormsyCheckbox extends FormsyComponent {
     );
   }
 }
+const WithFormsyFormsyCheckbox = withFormsy(FormsyCheckbox);
 
-export default withFormsy(FormsyCheckbox);
+export { WithFormsyFormsyCheckbox as FormsyCheckbox };

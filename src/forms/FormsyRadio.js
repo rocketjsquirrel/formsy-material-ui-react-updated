@@ -14,6 +14,7 @@ export class FormsyRadio extends React.Component {
       innerRef,
       isFormDisabled,
       isFormSubmitted,
+      isRequired,
       isPristine,
       required,
       isValid,
@@ -36,5 +37,7 @@ export class FormsyRadio extends React.Component {
     );
   }
 }
+const WithFormsyFormsyText = withFormsy(FormsyText);
 
+export { WithFormsyFormsyText as FormsyText };
 export default withFormsy(FormsyRadio);

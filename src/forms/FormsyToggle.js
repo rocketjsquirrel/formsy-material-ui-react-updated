@@ -6,7 +6,7 @@ import Toggle from 'material-ui/Toggle';
 import FormsyComponent from './FormsyComponent';
 import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
 
-export class FormsyToggle extends FormsyComponent {
+class FormsyToggle extends FormsyComponent {
   static propTypes = {
     defaultToggled: PropTypes.bool,
     name: PropTypes.string.isRequired,
@@ -38,6 +38,7 @@ export class FormsyToggle extends FormsyComponent {
       isFormSubmitted,
       isPristine,
       required,
+      isRequired,
       isValid,
       isValidValue,
       resetValue,
@@ -71,4 +72,6 @@ export class FormsyToggle extends FormsyComponent {
   }
 }
 
-export default withFormsy(FormsyToggle);
+const WithFormsyFormsyToggle = withFormsy(FormsyToggle);
+
+export { WithFormsyFormsyToggle as FormsyToggle };

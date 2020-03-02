@@ -6,7 +6,7 @@ import TextField from 'material-ui/TextField';
 import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
 import FormsyComponent from './FormsyComponent';
 
-export class FormsyText extends FormsyComponent {
+class FormsyText extends FormsyComponent {
   static propTypes = {
     convertValue: PropTypes.func,
     defaultValue: PropTypes.any,
@@ -132,6 +132,7 @@ export class FormsyText extends FormsyComponent {
       isFormSubmitted,
       isPristine,
       required,
+      isRequired,
       isValid,
       isValidValue,
       resetValue,
@@ -174,4 +175,6 @@ export class FormsyText extends FormsyComponent {
   }
 }
 
-export default withFormsy(FormsyText);
+const WithFormsyFormsyText = withFormsy(FormsyText);
+
+export { WithFormsyFormsyText as FormsyText };

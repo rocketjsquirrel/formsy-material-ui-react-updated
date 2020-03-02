@@ -42,6 +42,7 @@ export class FormsyRadioGroup extends FormsyComponent {
       required,
       isValid,
       isValidValue,
+      isRequired,
       resetValue,
       setValidations,
       setValue,
@@ -89,5 +90,7 @@ export class FormsyRadioGroup extends FormsyComponent {
     );
   }
 }
+const WithFormsyFormsyText = withFormsy(FormsyText);
 
+export { WithFormsyFormsyText as FormsyText };
 export default withFormsy(FormsyRadioGroup);

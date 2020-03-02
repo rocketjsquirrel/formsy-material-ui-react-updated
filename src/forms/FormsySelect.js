@@ -6,7 +6,7 @@ import SelectField from 'material-ui/SelectField';
 import FormsyComponent from './FormsyComponent';
 import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
 
-export class FormsySelect extends FormsyComponent {
+class FormsySelect extends FormsyComponent {
   static propTypes = {
     children: PropTypes.node,
     name: PropTypes.string.isRequired,
@@ -44,6 +44,7 @@ export class FormsySelect extends FormsyComponent {
       isFormSubmitted,
       isPristine,
       required,
+      isRequired,
       isValid,
       isValidValue,
       onChange,
@@ -80,5 +81,6 @@ export class FormsySelect extends FormsyComponent {
     );
   }
 }
+const WithFormsyFormsySelect = withFormsy(FormsySelect);
 
-export default withFormsy(FormsySelect);
+export { WithFormsyFormsySelect as FormsySelect };
