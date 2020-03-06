@@ -16,16 +16,16 @@ class FormsyTime extends FormsyComponent {
     validations: PropTypes.oneOfType([PropTypes.string, PropTypes.object]),
     value: PropTypes.object,
   };
-
+  
   componentDidMount() {
     const { defaultTime } = this.props;
     const value = this.props.value;
-
+    
     if (typeof value === 'undefined' && typeof defaultTime !== 'undefined') {
       this.props.setValue(defaultTime);
     }
   }
-
+  
   componentWillReceiveProps(newProps) {
     if (newProps.value) {
       if (!this.props.value || !this.timesEq(this.props.value, newProps.value)) {
@@ -37,7 +37,7 @@ class FormsyTime extends FormsyComponent {
       }
     }
   }
-
+  
   /**
    * Check time equality by hours and minutes
    * @param {Date} date1
@@ -46,49 +46,53 @@ class FormsyTime extends FormsyComponent {
   timesEq = (date1, date2) => {
     return date1.getHours() === date2.getHours() && date1.getMinutes() === date2.getMinutes();
   };
-
+  
   handleChange = (event, value) => {
     this.props.setValue(value);
     if (this.props.onChange) this.props.onChange(event, value);
   };
-
+  
   render() {
     const {
-      defaultTime,
-      errorMessage,
-      errorMessages,
-      value,
-      hasValue,
-      innerRef,
-      isFormDisabled,
-      isFormSubmitted,
-      isPristine,
-      required,
-      isRequired,
-      isValid,
-      isValidValue,
-      resetValue,
-      setValidations,
-      setValue,
-      showError,
-      showRequired,
-      validationError,
-      validationErrors,
-      validations,
-      ...rest
-    } = this.props;
-
+            defaultTime,
+            errorMessage,
+            errorMessages,
+            value,
+            hasValue,
+            innerRef,
+            isFormDisabled,
+            isFormSubmitted,
+            isPristine,
+            required,
+            isRequired,
+            isValid,
+            isValidValue,
+            resetValue,
+            setValidations,
+            setValue,
+            showError,
+            showRequired,
+            validationError,
+            validationErrors,
+            validations,
+            ...rest
+          } = this.props;
+    
+    
+    const raiseError = (showError || showRequired)  && !isPristine && !isValid && isFormSubmitted;
+    const errorText = raiseError ? this.getErrors(errorMessage, errorMessages)  : null;
+    
     return (
-      <MuiThemeProvider>
-        <TimePicker
-          disabled={isFormDisabled}
-          {...rest}
-          errorText={errorMessage}
-          onChange={this.handleChange}
-          ref={this.setMuiComponentAndMaybeFocus}
-          value={value}
-        />
-      </MuiThemeProvider>
+        <MuiThemeProvider>
+          <TimePicker
+              disabled={isFormDisabled}
+              {...rest}
+              errorText={errorText}
+              onChange={this.handleChange}
+              ref={this.setMuiComponentAndMaybeFocus}
+              value={value}
+          />
+        </MuiThemeProvider>
     );
   }
 }

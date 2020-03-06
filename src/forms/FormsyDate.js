@@ -17,16 +17,16 @@ class FormsyDate extends FormsyComponent {
     validations: PropTypes.oneOfType([PropTypes.string, PropTypes.object]),
     value: PropTypes.object,
   };
-
+  
   componentDidMount() {
     const { defaultDate } = this.props;
     const value = this.props.value;
-
+    
     if (typeof value === 'undefined' && typeof defaultDate !== 'undefined') {
       this.props.setValue(defaultDate);
     }
   }
-
+  
   componentWillReceiveProps(newProps) {
     if (newProps.value) {
       if (!this.props.value || !this.datesEq(this.props.value, newProps.value)) {
@@ -38,7 +38,7 @@ class FormsyDate extends FormsyComponent {
       }
     }
   }
-
+  
   /**
    * Check date equality by year, month and day
    * @param {Date} date1
@@ -46,58 +46,59 @@ class FormsyDate extends FormsyComponent {
    */
   datesEq = (date1, date2) => {
     return (
-      date1.getFullYear() === date2.getFullYear() &&
-      date1.getDate() === date2.getDate() &&
-      date1.getDay() === date2.getDay()
+        date1.getFullYear() === date2.getFullYear() &&
+        date1.getDate() === date2.getDate() &&
+        date1.getDay() === date2.getDay()
     );
   };
-
+  
   handleChange = (event, value) => {
     this.props.setValue(value);
     if (this.props.onChange) this.props.onChange(event, value);
   };
-
+  
   render() {
     /* eslint no-unused-vars: 0 */
     const {
-      errorMessage,
-      errorMessages,
-      value,
-      hasValue,
-      innerRef,
-      isFormDisabled,
-      isFormSubmitted,
-      isRequired,
-      isPristine,
-      required,
-      isValid,
-      isValidValue,
-      name,
-      resetValue,
-      requiredError,
-      setValidations,
-      setValue,
-      showError,
-      showRequired,
-      validationError,
-      validationErrors,
-      validations,
-      ...rest
-    } = this.props;
-
-    const isRequiredError = required && !isPristine && !isValid && isFormSubmitted && requiredError;
-    const errorText = errorMessage || isRequiredError;
+            errorMessage,
+            errorMessages,
+            value,
+            hasValue,
+            innerRef,
+            isFormDisabled,
+            isFormSubmitted,
+            isRequired,
+            isPristine,
+            required,
+            isValid,
+            isValidValue,
+            name,
+            resetValue,
+            requiredError,
+            setValidations,
+            setValue,
+            showError,
+            showRequired,
+            validationError,
+            validationErrors,
+            validations,
+            ...rest
+          } = this.props;
+    
+    const raiseError = (showError || showRequired)  && !isPristine && !isValid && isFormSubmitted;
+    const errorText = raiseError ? this.getErrors(errorMessage, errorMessages)  : null;
+    
     return (
-      <MuiThemeProvider>
-        <DatePicker
-          disabled={isFormDisabled}
-          {...rest}
-          errorText={errorText}
-          onChange={this.handleChange}
-          ref={this.setMuiComponentAndMaybeFocus}
-          value={value}
-        />
-      </MuiThemeProvider>
+        <MuiThemeProvider>
+          <DatePicker
+              disabled={isFormDisabled}
+              {...rest}
+              errorText={errorText}
+              onChange={this.handleChange}
+              ref={this.setMuiComponentAndMaybeFocus}
+              value={value}
+          />
+        </MuiThemeProvider>
     );
   }
 }

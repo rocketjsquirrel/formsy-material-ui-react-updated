@@ -15,7 +15,7 @@ class FormsyCheckbox extends FormsyComponent {
     validationErrors: PropTypes.object,
     validations: PropTypes.oneOfType([PropTypes.string, PropTypes.object]),
   };
-
+  
   static defaultProps = {
     onChange: () => {},
     validationError: '',
@@ -23,59 +23,59 @@ class FormsyCheckbox extends FormsyComponent {
     validations: {},
     defaultChecked: false,
   };
-
+  
   componentDidMount() {
     this.props.setValue(this.muiComponent.isChecked());
   }
-
+  
   handleChange = (event, value) => {
     this.props.setValue(value);
     if (this.props.onChange) this.props.onChange(event, value);
   };
-
+  
   render() {
     /* eslint no-unused-vars: 0 */
     const {
-      defaultChecked,
-      errorMessage,
-      errorMessages,
-      value,
-      hasValue,
-      innerRef,
-      isFormDisabled,
-      isFormSubmitted,
-      isPristine,
-      isRequired,
-      required,
-      isValid,
-      isValidValue,
-      onChange,
-      resetValue,
-      requiredError,
-      setValidations,
-      setValue,
-      showError,
-      showRequired,
-      validationError,
-      validationErrors,
-      validations,
-      ...rest
-    } = this.props;
-
+            defaultChecked,
+            errorMessage,
+            errorMessages,
+            value,
+            hasValue,
+            innerRef,
+            isFormDisabled,
+            isFormSubmitted,
+            isPristine,
+            isRequired,
+            required,
+            isValid,
+            isValidValue,
+            onChange,
+            resetValue,
+            requiredError,
+            setValidations,
+            setValue,
+            showError,
+            showRequired,
+            validationError,
+            validationErrors,
+            validations,
+            ...rest
+          } = this.props;
+    
     let checkBoxValue = value;
     if (typeof checkBoxValue === 'undefined') {
       checkBoxValue = typeof defaultChecked !== 'undefined' ? defaultChecked : false;
     }
     return (
-      <MuiThemeProvider>
-        <Checkbox
-          disabled={isFormDisabled}
-          {...rest}
-          checked={checkBoxValue}
-          onCheck={this.handleChange}
-          ref={this.setMuiComponentAndMaybeFocus}
-        />
-      </MuiThemeProvider>
+        <MuiThemeProvider>
+          <Checkbox
+              disabled={isFormDisabled}
+              {...rest}
+              checked={checkBoxValue}
+              onCheck={this.handleChange}
+              ref={this.setMuiComponentAndMaybeFocus}
+          />
+        </MuiThemeProvider>
     );
   }
 }
